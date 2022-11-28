@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {WikipediaService} from "./wikipedia.service";
 
 @Component({
@@ -7,13 +7,18 @@ import {WikipediaService} from "./wikipedia.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private  wikipedia: WikipediaService) {
+  pages  = [] ;
+  constructor(private wikipedia: WikipediaService) {
   }
 
 
   onTerm(term: string) {
-    console.log(term ,'in searchbar component');
-const res = this.wikipedia.search(term);
-console.log(res);
+
+    this.wikipedia.search(term).subscribe( (response:any) => {
+
+       this.pages = response.query.search;
+
+    });
+
   }
 }
