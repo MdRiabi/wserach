@@ -6,8 +6,10 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./page-list.component.css']
 })
 export class PageListComponent implements OnInit {
-@Input() page = [];
-  constructor() { }
+@Input() page = []as any;
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }
