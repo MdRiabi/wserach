@@ -8,7 +8,9 @@
   </thead>
   <tbody>
   <tr *ngFor="let res of page">
+    <a target="_blank" [href]=" 'https://en.wikipedia.org?curid=' + res.pageid ">
     <td>{{res.title}}</td>
+    </a>
     <td>{{res.wordcount}}</td>
     <td [innerHTML]="res.snippet"></td>
   </tr>
